@@ -8,9 +8,9 @@ To run::
     python3 -m venv ./showcase_venv
     source ./showcase_venv/bin/activate
     # install dependencies
-    python3 pip install -r requirements.txt
+    python pip install -r requirements.txt
     # run app
-    python3 showcase/main.py
+    python showcase/main.py
 
 
 On the page that loads there Sould be Images with selection boxes to their right. Select appropriate effects,  linear/linear_mipmap_linear etc to see the effect of these texture filtering option.
