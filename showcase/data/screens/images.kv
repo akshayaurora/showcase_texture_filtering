@@ -1,0 +1,38 @@
+ShowcaseScreen:
+    name: 'Images'
+    BoxLayout
+        BoxImages
+            texture_style: 'linear'
+        BoxImages
+            texture_style: 'linear_mipmap_linear'
+
+<BoxImages@BoxLayout>
+    texture_style: 'linear'
+    orientation: 'vertical'
+    TexImage
+        texture_style: root.texture_style
+        source: 'data/logo/kivy-icon-128.png'
+    TexImage
+        texture_style: root.texture_style
+        source: 'data/icons/bug.png'
+    TexImage
+        texture_style: root.texture_style
+        source: 'data/icons/chevron-left.png'
+    TexImage
+        texture_style: root.texture_style
+        source: 'data/icons/chevron-right.png'
+
+
+<TexImage@BoxLayout>
+    size_hint: 1, None
+    height: dp(54)
+    texture_style: 'linear'
+    source: 'data/logo/kivy-icon-128.png'
+    Image
+        mipmap: True
+        on_texture: if args[1] and dp(1) <= 1: args[1].min_filter = root.texture_style; args[1].mag_filter = 'linear'
+        source: root.source if root.source != 'Default' else 'nearest_mipmap_linear'
+    Spinner
+        text: root.texture_style
+        values: ['linear', 'nearest', 'linear_mipmap_linear', 'linear_mipmap_nearest', 'nearest_mipmap_nearest', 'nearest_mipmap_linear', 'Default' ]
+        on_text: if hasattr(root, 'texture_style') and args[1]: root.texture_style = args[1]
